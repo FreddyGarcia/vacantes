@@ -20,7 +20,7 @@ angular.module('MyApp', ['ui.router', 'door3.css','MyApp.controllers'])
 
 .factory('MyFactory', function($http) {
     var obj = {};
-    var site_url = 'http://localhost/rh/service';
+    var site_url = 'https://vacantes-zoren101.c9.io/vacantes/service';
 
     obj.ruta = ''
 
