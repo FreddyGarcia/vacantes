@@ -1,8 +1,14 @@
 <?php
 	define('HOST', 'localhost');
-	define('USER', 'root');
-	define('PASS', 'toor');
+	define('USER', 'zoren101');
+	// define('PASS', 'toor');
 	define('DB', 'rh');
+
+	// local settings
+	// define('HOST', 'localhost');
+	// define('USER', 'root');
+	// define('PASS', 'toor');
+	// define('DB', 'rh');
 
 
 	class Conexion
