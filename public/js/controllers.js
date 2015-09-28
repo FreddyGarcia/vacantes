@@ -5,6 +5,8 @@ angular.module('MyApp.controllers', [])
     $scope.candidatos = [];
     $scope.posiciones = [];
 
+    IsLogged();
+
     GetCandidatos();
     GetPosiciones();
 
@@ -14,9 +16,14 @@ angular.module('MyApp.controllers', [])
         $location.path('/app/viewer/' + id);
     }
 
+    function IsLogged () {
+        if(!MyFactory.session.is_logged)
+            $location.path('/app/login');
+    }
+
 
     function GetCandidatos() {
-        MyFactory.getCandidatos()
+        MyFactory.service.getCandidatos()
             .then(function (res) {
                 $scope.candidatos = res.data;
             } , function (err) {
@@ -26,7 +33,7 @@ angular.module('MyApp.controllers', [])
 
     
     function GetPosiciones() {
-        MyFactory.getPosiciones()
+        MyFactory.service.getPosiciones()
             .then(function (res) {
                 $scope.posiciones = res.data;
             } , function (err) {
@@ -50,19 +57,21 @@ angular.module('MyApp.controllers', [])
 })
 
 .controller('NuevoCtrl',function ($scope, $http, $location, MyFactory) {
-    $scope.path = $location.path();
-    $scope.getVisibilidadNavBar = function () {
 
-        return true;
+
+    $scope.items = [1,2,3,4,5];
+
+    // LoadSelectize();
+
+
+    function LoadSelectize() {
+        $(".selectizable").selectize( );
     }
-
-    var location = $location.path();
 
 })
 
 
 .controller('ViewerCtrl',function ($scope, $http, $location, $stateParams, $state, MyFactory) {
-
     $scope.candidato = {};
     $scope.visto = false;
 
@@ -81,7 +90,7 @@ angular.module('MyApp.controllers', [])
 
 
     function GetCandidato(params ) {
-        MyFactory.getCandidatos(params)
+        MyFactory.service.getCandidatos(params)
             .then(function (res) {
                 $scope.candidato = res.data[0];
                 console.log(res.data[0]);
@@ -103,7 +112,7 @@ angular.module('MyApp.controllers', [])
 
 
     function GetCandidatos() {
-        MyFactory.getCandidatos()
+        MyFactory.service.getCandidatos()
             .then(function(res) {
                 $scope.candidatos = res.data;
             }, function(err) {
@@ -113,7 +122,7 @@ angular.module('MyApp.controllers', [])
 
 
     function GetPosiciones() {
-        MyFactory.getPosiciones()
+        MyFactory.service.getPosiciones()
             .then(function(res) {
                 $scope.posiciones = res.data;
             }, function(err) {
@@ -121,3 +130,61 @@ angular.module('MyApp.controllers', [])
             })
     }
 })
+
+
+
+.controller('LoginCtrl',function ($scope, $http, $location, MyFactory) {
+
+
+    $scope.formData = {};
+    $scope.bad_login = false;
+
+    $scope.login = function () {
+        var result =  MyFactory.session.login($scope.formData);
+
+        if(result)
+            MyFactory.util.redirigir('vacantes');
+        else
+            $scope.bad_login = true;
+    }
+
+    function GetCandidatos() {
+        MyFactory.service.getCandidatos()
+            .then(function(res) {
+                $scope.candidatos = res.data;
+            }, function(err) {
+                console.log(err);
+            })
+    }
+
+
+    function GetPosiciones() {
+        MyFactory.service.getPosiciones()
+            .then(function(res) {
+                $scope.posiciones = res.data;
+            }, function(err) {
+                console.log(err);
+            })
+    }
+})
+.controller('LogoutCtrl',function ($scope, $location, MyFactory) {
+
+    RedireccionarInicio();
+
+    function RedireccionarInicio () {
+        MyFactory.session.logout();
+        MyFactory.util.redirigir('index');
+    }
+})
+.controller('LoadingCtrl',function ($scope, $location, $stateParams, $timeout, MyFactory) {    
+    Cargar();
+    function Cargar() {
+        var random = Math.floor((Math.random() * 3) + 1) * 1000;
+        $timeout(function() {
+            $location.path('/app/' + $stateParams.url);
+        }, random);
+
+    }
+})
+
+

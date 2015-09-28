@@ -1,5 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
+body {
+  margin-top: 60px;
+}
+
+
+#loginbox {
+  margin-top: 70px;
+
+}
+
 /****** LOGIN MODAL ******/
 .loginmodal-container {
   padding: 30px;

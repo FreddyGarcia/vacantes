@@ -21,7 +21,8 @@
     <div class="form-group">
       <label for="inputPassword3" class="col-sm-2 control-label">Informacion Personal</label>
       <div class="col-sm-10">
-        <textarea class="form-control" rows="3"></textarea>
+        <select ng-model="ts" class="selectizable" ng-options="item for item in items"></select>
+        <!-- <textarea class="form-control" rows="3"></textarea> -->
       </div>
     </div>
     

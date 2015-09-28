@@ -1,10 +1,38 @@
+body {
+	/*background-color: black;*/
+    margin-top: 60px;
+}
+
 a.list-group-item {
-    height:auto;
-    min-height:220px;
+    height: auto;
+    min-height: 220px;
 }
 a.list-group-item.active small {
-    color:#fff;
+    color: #fff;
 }
 .stars {
-    margin:20px auto 1px;    
+    margin: 20px auto 1px;
+}
+a.list-group-item {
+    height: auto;
+    min-height: 140px;
+}
+a.list-group-item.active small {
+    color: #fff;
+}
+.stars {
+    margin: 200px auto 1px;
+    /*margin: 20px auto 1px;*/
+}
+.glyphicon {
+    margin-right: 10px;
+}
+.panel-body {
+    padding: 0px;
+}
+.panel-body table tr td {
+    padding-left: 15px
+}
+.panel-body .table {
+    margin-bottom: 0px;
 }

@@ -1,7 +1,7 @@
 <?php
 	define('HOST', 'localhost');
-	define('USER', 'zoren101');
-	// define('PASS', 'toor');
+	define('USER', 'root');
+	define('PASS', 'toor');
 	define('DB', 'rh');
 
 	// local settings

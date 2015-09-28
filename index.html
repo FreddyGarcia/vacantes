@@ -13,7 +13,8 @@
 
   <link rel="stylesheet" type="text/css" href="public/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="public/css/vendor/bootstrap-theme.min.css">
-  <link rel="stylesheet" type="text/css" href="public/css/vendor/nouislider.min.css">
+  <link rel="stylesheet" type="text/css" href="public/css/vendor/selectize.css">
+
 </head>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -26,11 +27,12 @@
   <div ui-view="container"></div>
 
 
+
   <script type="text/javascript" src="public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
   <script type="text/javascript" src="public/js/vendor/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="public/js/vendor/bootstrap.min.js"></script>
-  <script type="text/javascript" src="public/js/vendor/nouislider.min.js"></script>
+  <script type="text/javascript" src="public/js/vendor/selectize.min.js"></script>
 
   <script type="text/javascript" src="public/js/vendor/angular.min.js"></script>
   <script type="text/javascript" src="public/js/vendor/angular-ui-router.min.js"></script>
@@ -38,6 +40,15 @@
 
   <script type="text/javascript" src="public/js/app.js"></script>
   <script type="text/javascript" src="public/js/controllers.js"></script>
+
+
+
+  <script type="text/javascript">
+    $(document).on('ready', function () {
+      $(".selectizable").selectize();
+    })
+  </script>
+
 
 
 </body>
