@@ -1,0 +1,29 @@
+		<div class="list-group">
+			<a href="#" class="list-group-item" ng-repeat="empresa in empresas">
+				<div class="media col-md-2">
+					<figure class="pull-left">
+						<img class="media-object img-rounded img-responsive"  src="{{empresa.url}}"  alt="placehold.it/350x250" >
+					</figure>
+				</div>
+				<div class="col-md-6">
+					<h4 class="list-group-item-heading"> {{empresa.nombre}} </h4>
+					<p class="list-group-item-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi 						</p>
+				</div>
+				<div class="col-md-3 text-center">
+
+					<!-- <a  class="btn btn-primary  btn-lg btn-block" ng-href="app/viewer/{{empresa.candidato_id}}"> Ver empresa </a> -->
+					<div class="stars" ng-show="false">
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+					</div>
+					<!-- <p> Average 4.5 <small> / </small> 5 </p> -->
+				</div>
+			</a>
+			
+			
+		</div>

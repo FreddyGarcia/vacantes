@@ -186,5 +186,23 @@ angular.module('MyApp.controllers', [])
 
     }
 })
+.controller('EmpresasCtrl',function ($scope, $location, $stateParams, $timeout, MyFactory) {
+    $scope.empresas = 
+    [
+        {
+            nombre : 'Shell',
+            url : 'http://slashmarks.com/wp-content/uploads/2013/10/logo-royal-dutch-shell.gif'
+        },
+        {
+            nombre : 'Toyota',
+            url : 'http://slashmarks.com/wp-content/uploads/2013/10/logo-toyota.gif'
+        },
+        {
+            nombre : 'BMW',
+            url : 'http://slashmarks.com/wp-content/uploads/2013/10/logo-volkswagen.jpg'
+        },
+
+    ]
+})
 
 

@@ -42,14 +42,10 @@ angular.module('MyApp', ['ui.router', 'door3.css', 'MyApp.controllers'])
 
     obj.util.redirigir = function (url) {
         $location.path('/app/loading/' + url);
-
-        // $timeout(function() {
-        //     $location.path('/app/' + url);
-        // }, 3000);
     }
 
     obj.service.getCandidatos = function(params) {
-        return $http.post(site_url + '/candidatos', {
+        return $http.post(site_url + '/candidatos.php',  {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -58,7 +54,7 @@ angular.module('MyApp', ['ui.router', 'door3.css', 'MyApp.controllers'])
     }
 
     obj.service.getPosiciones = function(params) {
-        return $http.post(site_url + '/posiciones', {
+        return $http.post(site_url + '/posiciones.php',  {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -144,6 +140,24 @@ angular.module('MyApp', ['ui.router', 'door3.css', 'MyApp.controllers'])
                         templateUrl: 'templates/loading.html',
                         controller: 'LoadingCtrl',
                         css: 'public/css/loading.css'
+                    }
+                }
+            })
+            .state('app.empresas', {
+                url: '/app/empresas',
+                views: {
+                    'container@': {
+                        templateUrl: 'templates/empresas.html',
+                        controller: 'EmpresasCtrl',
+                        css: 'public/css/vacantes.css'
+                    }
+                }
+            })
+            .state('app.contacto', {
+                url: '/app/contacto',
+                views: {
+                    'container@': {
+                        templateUrl: 'templates/contacto.html'
                     }
                 }
             })
